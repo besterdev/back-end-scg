@@ -10,31 +10,31 @@ const { MONGOURI } = require("./keys");
 const bodyParser = require("body-parser");
 const DOSCGRoutes = require("./controllers/doscgController");
 
-//  X, Y, 5, 9, 15, 23, Z function finding X, Y, Z value
-let a = 1;
-let b = -3;
-let c = 5;
-let handlerSeriesX = (n) => {
-  //an = a*n**2 - b*n + c
-  let result = a * n ** 2 + b * n + c;
-  return `resultValue :${result}`;
-};
-console.log(handlerSeriesX(1));
-
-// A = 21, A + B = 23, A + C = -21 function finding B and C value
-let A = 21;
-let AB = 23;
-let AC = -21;
-let find = () => {
-  let B = AB - A;
-  let C = AC - A;
-  return `B:${B} & C:${C}`;
-};
-console.log(find());
-
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
+
+// //  X, Y, 5, 9, 15, 23, Z function finding X, Y, Z value
+// let a = 1;
+// let b = -3;
+// let c = 5;
+// let handlerSeriesX = (n) => {
+//   //an = a*n**2 - b*n + c
+//   let result = a * n ** 2 + b * n + c;
+//   return `resultValue :${result}`;
+// };
+// console.log(handlerSeriesX(1));
+
+// // A = 21, A + B = 23, A + C = -21 function finding B and C value
+// let A = 21;
+// let AB = 23;
+// let AC = -21;
+// let find = () => {
+//   let B = AB - A;
+//   let C = AC - A;
+//   return `B:${B} & C:${C}`;
+// };
+// console.log(find());
 
 io.on("connection", (socket) => {
   socket.join("line").emit("connectToRoom", "you are in room.");
