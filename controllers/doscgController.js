@@ -13,16 +13,16 @@ res.setHeader("Access-Control-Allow-Headers", "X-Requested-With,content-type");
 res.setHeader("Access-Control-Allow-Credentials", true);
 
 router.get("/", async (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  ); // If needed
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "X-Requested-With,content-type"
-  );
-  res.setHeader("Access-Control-Allow-Credentials", true);
+  // res.setHeader("Access-Control-Allow-Origin", "*");
+  // res.setHeader(
+  //   "Access-Control-Allow-Methods",
+  //   "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  // ); // If needed
+  // res.setHeader(
+  //   "Access-Control-Allow-Headers",
+  //   "X-Requested-With,content-type"
+  // );
+  // res.setHeader("Access-Control-Allow-Credentials", true);
   try {
     const bucketListItems = await Doscg.find();
     if (!bucketListItems) throw new Error("No bucketListItems");
@@ -36,16 +36,16 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  ); // If needed
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "X-Requested-With,content-type"
-  );
-  res.setHeader("Access-Control-Allow-Credentials", true);
+  // res.setHeader("Access-Control-Allow-Origin", "*");
+  // res.setHeader(
+  //   "Access-Control-Allow-Methods",
+  //   "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  // ); // If needed
+  // res.setHeader(
+  //   "Access-Control-Allow-Headers",
+  //   "X-Requested-With,content-type"
+  // );
+  // res.setHeader("Access-Control-Allow-Credentials", true);
   const newRecord = new Doscg(req.body);
   try {
     const doscg = await newRecord.save();
