@@ -5,16 +5,16 @@ const ObjectID = require("mongoose").Types.ObjectId;
 const { Doscg } = require("../models/Doscg");
 
 router.get("/", async (req, res) => {
-  // res.setHeader("Access-Control-Allow-Origin", "*");
-  // res.setHeader(
-  //   "Access-Control-Allow-Methods",
-  //   "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  // ); // If needed
-  // res.setHeader(
-  //   "Access-Control-Allow-Headers",
-  //   "X-Requested-With,content-type"
-  // );
-  // res.setHeader("Access-Control-Allow-Credentials", true);
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  ); // If needed
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-Requested-With,content-type"
+  );
+  res.setHeader("Access-Control-Allow-Credentials", true);
   try {
     const bucketListItems = await Doscg.find();
     if (!bucketListItems) throw new Error("No bucketListItems");
