@@ -26,32 +26,6 @@ router.get("/", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
-// router.get("/", async (req, res) => {
-//   try {
-//     const doscg = await Doscg.find();
-//     if (!doscg) throw new Error("Error while retrieving all records.");
-//     const sorted = doscg.sort((a, b) => {
-//       return new Date(a.date).getTime() - new Date(b.date).getTime();
-//     });
-//     res.status(200).JSON(sorted);
-//   } catch (error) {
-//     res.status(500).json({ message: error.message });
-//   }
-// });
-
-// router.get("/", (req, res) => {
-//   Doscg.find((err, docs) => {
-//     if (!err) {
-//       res.send(docs);
-//       console.log("Successfully retrieving all record");
-//     } else {
-//       console.log(
-//         "Error while retrieving all records : " +
-//           JSON.stringify(err, undefined, 2)
-//       );
-//     }
-//   });
-// });
 
 router.post("/", async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
