@@ -12,7 +12,7 @@ let c = 5;
 
 let handlerSeriesX = (n) => {
   //an = a*n**2 - b*n + c
-  let result = a * n ** 2 - 3 * n + c;
+  let result = a * n ** 2 + b * n + c;
   return `resultValue :${result}`;
 };
 
@@ -30,6 +30,7 @@ let find = () => {
   return `B:${B} & C:${C}`;
 };
 
+console.log(find());
 
 //Middleware
 const app = express();
