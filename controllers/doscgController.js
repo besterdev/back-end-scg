@@ -15,8 +15,18 @@ router.get("/", async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  ); // If needed
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-Requested-With,content-type"
+  );
+  res.setHeader("Access-Control-Allow-Credentials", true);
 });
-// router.get("/", async (req, res) => { 
+// router.get("/", async (req, res) => {
 //   try {
 //     const doscg = await Doscg.find();
 //     if (!doscg) throw new Error("Error while retrieving all records.");
