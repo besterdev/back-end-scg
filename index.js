@@ -1,9 +1,10 @@
 "use strict";
+require("./db");
 const line = require("@line/bot-sdk");
 const path = require("path");
 const http = require("http");
 const socketio = require("socket.io");
-require("./db");
+
 const express = require("express");
 const mongoose = require("mongoose");
 const { MONGOURI } = require("./keys");
@@ -91,13 +92,13 @@ function handleEvent(event) {
 }
 
 //Middleware
-const app = express();
+
 app.use(bodyParser.json());
 
 app.use("/doscg", DOSCGRoutes);
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 // password: MOs8XjEBszG38ePZ
